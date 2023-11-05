@@ -131,7 +131,7 @@ export default function Index() {
         {matchingDcouments && (
           <div className="flex flex-col justify-center h-2/3 pt-28">
             <div className="top-0 m-4">
-              <h1 className="text-3xl text-center pb-10 font-bold">Results</h1>
+              <h1 className="text-3xl text-center pb-10">Results</h1>
               {matchingDcouments.map((document, index) => (
                 // formatting needed here and embed link in name make it look like a link and give spacing between different results
                 <div key={index} className="mb-6">
