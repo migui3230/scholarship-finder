@@ -84,7 +84,7 @@ export default function Index() {
   return (
     <>
       <div className="flex flex-col justify-center h-2/3 pt-56">
-        <div className="top-0 m-4">
+        <div className="top-0 m-4 py-4">
           <h1 className="text-4xl text-center">
             What scholarship are you looking for?
           </h1>
@@ -97,12 +97,6 @@ export default function Index() {
       />
 
       <div className="w-3/5 mx-auto">
-        <label
-          htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-        >
-          Your message
-        </label>
         <textarea
           id="message"
           rows={4}
