@@ -86,7 +86,7 @@ export default function Index() {
       <div className="flex flex-col justify-center h-2/3 pt-56">
         <div className="top-0 m-4 py-4">
           <h1 className="text-4xl text-center">
-            What scholarship are you looking for?
+            What scholarships are you looking for?
           </h1>
         </div>
       </div>
