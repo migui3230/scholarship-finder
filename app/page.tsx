@@ -66,6 +66,42 @@ export default function Index() {
       if (response.status === 200) {
         const embedding = response.data.data[0].embedding;
         // rpc call to get the matching documents
+        /*
+
+        rpc function:
+
+        create or replace function match_documents (
+          query_embedding vector(1536),
+          match_threshold float,
+          match_count int
+        )
+        returns table (
+          id int8,
+          name text,
+          years text,
+          link text,
+          amount numeric,
+          description text,
+          similarity float
+        )
+        language sql stable
+        as $$
+          select
+            scholarships.id,
+            scholarships.name,
+            scholarships.years,
+            scholarships.link,
+            scholarships.amount,
+            scholarships.description,
+            1 - (scholarships.embedding <=> query_embedding) as similarity
+          from scholarships
+          where 1 - (scholarships.embedding <=> query_embedding) > match_threshold
+          order by similarity desc
+          limit match_count;
+        $$;
+
+
+        */
         const { data, error } = await supabase.rpc("match_documents", {
           query_embedding: embedding,
           match_threshold: 0.5,
