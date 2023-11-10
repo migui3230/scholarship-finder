@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font";
 import "./globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Providers from "./providers";
+import { Analytics } from "@vercel/analytics/react";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -24,7 +25,10 @@ export default function RootLayout({
     <html lang="en" className={GeistSans.className}>
       <body className="bg-background text-foreground">
         <main className="min-h-screen flex flex-col items-center">
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <Analytics />
+          </Providers>
         </main>
       </body>
     </html>
